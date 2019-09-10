@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- 本地数据库驱动程序jar包的全路径 -->
+    <classPathEntry
+            location="C:\\1Study\\recommendation\\mysql-connector-java-8.0.17\\mysql-connector-java-8.0.17.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库的相关配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/kmeans?serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="zyd0913w">
+        </jdbcConnection>
+
+        <!-- 实体类生成的位置 -->
+        <javaModelGenerator targetPackage="ebookBackend.entity" targetProject="src">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- *Mapper.xml 文件的位置 -->
+        <sqlMapGenerator targetPackage="ebookBackend.mapping" targetProject="src">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- Mapper 接口文件的位置 -->
+        <javaClientGenerator targetPackage="ebookBackend.dao" targetProject="src" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 相关表的配置 -->
+        <!--        <table tableName="books" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--            <columnOverride column="abstraction" jdbcType="VARCHAR"></columnOverride>-->
+        <!--            <columnOverride column="catalogue" jdbcType="VARCHAR"></columnOverride>-->
+        <!--        </table>-->
+        <table tableName="user" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+<!--            <columnOverride column="username" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </table>
+        <!--        <table tableName="orders" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--        </table>-->
+        <!--        <table tableName="users" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--        </table>-->
+        <!--        <table tableName="cart_items" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--        </table>-->
+    </context>
+</generatorConfiguration>
